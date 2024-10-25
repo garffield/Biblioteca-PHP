@@ -1,8 +1,8 @@
 <?php
 
-Interface Crud {
-    public function create();
-    public function read();
-    public function update();
-    public function delete();
+Interface InterfaceCrud {
+    public function criar();
+    public function listar();
+    public function atualizar();
+    public function apagar();
 }

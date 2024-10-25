@@ -1,33 +1,16 @@
 <?php
 
-class Usuario implements InterfaceCrud {
+class Biblioteca {
 
-    public $nome;
-    public $senha;
-    const MAX_EMPRESTIMO = 2;
+    const localhost = 'localhost';
+    const usuario = 'usuario';
+    const senha = '';
+    const bancoDeDados = 'BibliotecaPHP';
+
+    public static function conexao() {
+        return $conn = mysqli_connect(self::localhost, self::usuario, self::senha, self::bancoDeDados);
+    }
+
+    public fun
     
-    public function __construct($nome, $senha) {
-        $this->nome = $nome;
-        $this->senha = $senha;
-    }
-
-    public function emprestarLivro($livro) {
-        if ($livro > 2) {
-            echo "Limite de emprestimo atingido";
-        }
-        
-    }
-
-
-
-}
-
-class Livro extends Crud {
-
-    public $isbn;
-    public $nomeLivro;
-    public $autor;
-    public function cadastro () {}
-    public function listar () {}
-
 }
