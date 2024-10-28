@@ -1,8 +1,8 @@
 <?php
 
-require "InterfaceCrud.php";
+require_once("InterfaceCrud.php");
 
-class Livro extends InterfaceCrud {
+class Livro implements InterfaceCrud {
 
     public $titulo;
     public $autor;
@@ -31,37 +31,28 @@ class Livro extends InterfaceCrud {
         }
     }
 
-    public function criar(){
-        
-        return ;
-    }
-    public function listar(){
-        
-        return;
-    }
-    public function atualizar($arrayColunas){
+    public function criar(){return ;}
+    public function listar(){return;}
+
+    public function atualizar($valores){
         $query = "update livro set";
+        for ($contador = 0; $contador > count($valores); $contador++) {
 
-        foreach ($arrayColunas as $coluna) {
+            $coluna = $colunasArray[$contador] = array_keys($valores);
+            //$coluna = $colunasArray[$contador];
+            $valor = $valores[$coluna];
+
+            $query .= $contador != (count($valores)-1) ? $coluna .' = "'. $valor.'", ' : $coluna .' = "'. $valor.'" ';
             
-            //pegar a chave
-            $chave
-
-            //pegar valor
-            $valor
-
-            $query += .$chave. ' = "' .$valor. '"';
+            var_dump($coluna);
         }
 
-        return $query += 'where titulo = "'.
-        $this->titulo. '";';
+        return $query += 'where titulo = "'.$this->titulo.'";';
     }
 
     public function apagar(){
-        return "delete * from livro where titulo = ".
-        $this->titulo.";";
+        return "delete * from livro where titulo = ". $this->titulo.";";
     }
-    
-    
 
 }
+

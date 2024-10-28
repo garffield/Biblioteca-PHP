@@ -1,6 +1,6 @@
 <?php
 
-require "InterfaceCrud.php";
+require_once("InterfaceCrud.php");
 
 class Usuario implements InterfaceCrud {
 
@@ -26,22 +26,9 @@ public function devolverLivro($livro){
     }
 }
 
-public function criar(){
-    
-    return;
-}
-public function listar(){
-    
-    return;
-}
-public function atualizar(){
-    
-    return;
-}
-public function apagar(){
-    
-    return;
-}
-
+public function criar(){return;}
+public function listar(){return;}
+public function atualizar($object){return;}
+public function apagar() {return;}
 
 }
